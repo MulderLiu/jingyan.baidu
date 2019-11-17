@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url(1.jpg);
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+</body>
+<script>
+
+    window.onload = function () {
+        var body = document.getElementsByTagName('body')[0];
+
+        var style = "";
+        if (document.defaultView && document.defaultView.getComputedStyle) {
+            style = document.defaultView.getComputedStyle(body);
+        } else {
+            style = a.currentStyle;
+        }
+
+        var url = style.backgroundImage;
+        var mat = url.match(/url\((.*?)\)/);
+        url = mat[1];
+        if (url[0] == "\"") {
+            url = url.slice(1, -1)
+        }
+
+        var img = new Image();
+        //img.style.backgroundImage=style.backgroundImage;
+        img.setAttribute('src', url);
+        img.onload = function () {
+            alert("图片的宽：" + this.width + " 图片的高:" + this.height);
+        };
+    }
+
+</script>
+
+</html>
