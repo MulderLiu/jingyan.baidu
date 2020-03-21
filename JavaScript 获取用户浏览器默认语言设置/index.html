@@ -1,0 +1,33 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-03-21 11:02:31
+ * @LastEditTime: 2020-03-21 11:51:53
+ * @LastEditors: Mulder
+ * @Description: In User Settings Edit
+ * @FilePath: \jingyan.baidu\JavaScript 获取用户浏览器默认语言设置\index.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 获取用户浏览器默认语言设置</title>
+</head>
+
+<body>
+    <h1>用户浏览器默认语言是：</h1>
+    <h2 id="lan"></h2>
+
+    <script type="text/javascript">
+        var lang = navigator.language || navigator.userLanguage;
+        lang = lang.substr(0, 2);
+        if (lang == "zh") {
+            document.getElementById("lan").textContent = "中文";
+        } else {
+            document.getElementById("lan").textContent = lang;
+        }
+    </script>
+</body>
+
+</html>
